@@ -22,14 +22,15 @@ body {
   margin: auto;
 }
 
-tr {
+.tr {
   height: 35px;
+  max-height: 35px;
 }
 
 td,
 th {
   border: 1px solid #dddddd;
   text-align: center;
-  width: 300px;
-  padding: 12px;
+  width: 313px;
+  font-size: 15px;
 }

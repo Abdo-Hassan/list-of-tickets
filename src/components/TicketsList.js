@@ -1,7 +1,8 @@
+/* eslint-disable no-loop-func */
 import React, { useState } from 'react';
 
 let rowHeight = 35;
-let defaultTableHeight = 550;
+let defaultTableHeight = 500;
 
 const TicketsList = ({ rows }) => {
   const [scroll, setScroll] = useState({
@@ -20,7 +21,7 @@ const TicketsList = ({ rows }) => {
     setScroll({
       index,
       top: (scrollTop / rowHeight) * rowHeight,
-      end: index + Math.ceil((tableHeight * 2) / rowHeight),
+      end: index + Math.ceil((defaultTableHeight * 2) / rowHeight),
     });
   };
 
@@ -28,20 +29,27 @@ const TicketsList = ({ rows }) => {
   const generateRows = () => {
     let items = [];
     let index = scroll?.index;
-
     do {
-      if (scroll?.index >= rows.length) {
+      if (index >= rows.length) {
         index = rows.length;
         break;
       }
 
+      const rowAttrs = {
+        style: {
+          position: 'absolute',
+          top: index * rowHeight,
+          height: rowHeight,
+          lineHeight: `${rowHeight - 3}px`,
+        },
+      };
+
       //  add new ticket [row] to the list while scrolling until reach the bottom
       items.push(
-        <tr key={index}>
-          {columns.map((column, i) => {
-            console.log('ROWS INDEX COLUMN', rows[index][column]);
-            return <td key={i}>{rows[index][column]}</td>;
-          })}
+        <tr {...rowAttrs} key={index}>
+          {columns.map((column, i) => (
+            <td key={i}>{rows[index][column]}</td>
+          ))}
         </tr>
       );
 
@@ -74,7 +82,7 @@ const TicketsList = ({ rows }) => {
       {/* table head */}
       <table className='table-head'>
         <thead>
-          <tr>
+          <tr className='tr'>
             {columns.map((name, i) => (
               <th key={i}>{name}</th>
             ))}

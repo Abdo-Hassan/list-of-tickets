@@ -14,7 +14,7 @@ function App() {
   return (
     <div className='App'>
       {/* this is fps meter to checkout that there is no any performance issues */}
-      <FpsView />
+      <FpsView width={152} height={100} />
       <h1 className='main-title'>
         Customer Tickets: ({Tickets.length}) Ticket
       </h1>
