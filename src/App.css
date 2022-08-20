@@ -7,6 +7,10 @@ body {
   margin: 30px auto;
 }
 
+.wrapper {
+  margin-bottom: 15px;
+}
+
 .table-content {
   border-collapse: collapse;
   width: 80%;

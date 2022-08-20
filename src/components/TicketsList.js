@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 let rowHeight = 35;
-let defaultTableHeight = 500;
+let defaultTableHeight = 600;
 
 const TicketsList = ({ rows }) => {
   const [scroll, setScroll] = useState({
@@ -78,7 +78,7 @@ const TicketsList = ({ rows }) => {
   };
 
   return (
-    <>
+    <div className='wrapper'>
       {/* table head */}
       <table className='table-head'>
         <thead>
@@ -94,7 +94,7 @@ const TicketsList = ({ rows }) => {
       <table {...tableAttrs} className='table-content'>
         <tbody {...tbodyAttr}>{generateRows()}</tbody>
       </table>
-    </>
+    </div>
   );
 };
 

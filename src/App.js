@@ -8,7 +8,7 @@ function App() {
     Subject: `${id}-defect ticket`,
     Priority: 'High',
     status: 'active',
-    Description: 'Lorem ipsum dolor sit amet consectetur',
+    Description: 'Lorem ipsum dolor sit amet',
   }));
 
   return (
