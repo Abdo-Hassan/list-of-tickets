@@ -34,3 +34,9 @@ th {
   width: 313px;
   font-size: 15px;
 }
+
+@media only screen and (max-width: 980px) {
+  .main-title {
+    font-size: 20px;
+  }
+}
