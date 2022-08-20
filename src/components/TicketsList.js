@@ -59,6 +59,16 @@ const TicketsList = ({ rows }) => {
     onScroll: onScroll,
   };
 
+  const tbodyAttr = {
+    style: {
+      position: 'relative',
+      display: 'inline-block',
+      height: tableHeight,
+      maxHeight: tableHeight,
+      width: '100%',
+    },
+  };
+
   return (
     <>
       {/* table head */}
@@ -70,6 +80,11 @@ const TicketsList = ({ rows }) => {
             ))}
           </tr>
         </thead>
+      </table>
+
+      {/* table content that has scrolling effect */}
+      <table {...tableAttrs} className='table-content'>
+        <tbody {...tbodyAttr}>{generateRows()}</tbody>
       </table>
     </>
   );
